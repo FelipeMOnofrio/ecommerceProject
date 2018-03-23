@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  final_price: 9.99
+  order_date: 2018-03-23 13:50:49
+  statue: 1
+  stock_id: 
+  address_id: 
+  customer_id: 
+
+two:
+  final_price: 9.99
+  order_date: 2018-03-23 13:50:49
+  statue: 1
+  stock_id: 
+  address_id: 
+  customer_id: 
