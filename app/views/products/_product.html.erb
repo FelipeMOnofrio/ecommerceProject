@@ -1,0 +1,12 @@
+<h2><%= product.product %></h2>
+
+<% if product.image.present? %>
+<P>
+  <%= image_tag product.image %>
+</P>
+  <% end %>
+<% if show_details_link %>
+<p>
+  <%= link_to 'View Details', product %>
+</p>
+<% end %>
