@@ -7,4 +7,9 @@ class Product < ApplicationRecord
   has_many :sizes, through: :stocks
   has_many :images
   validates :product, :price,  presence: true
+
+  def name
+    return self.product
+  end
+
 end

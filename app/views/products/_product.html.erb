@@ -1,10 +1,12 @@
 <h2><%= product.product %></h2>
 
-<% if product.image.present? %>
+<% if product.images.present? %>
+  <% product.images.each do |img| %>
 <P>
-  <%= image_tag product.image %>
+  <%= image_tag img.image, width:200 %>
 </P>
-  <% end %>
+  <% end
+  end %>
 <% if show_details_link %>
 <p>
   <%= link_to 'View Details', product %>

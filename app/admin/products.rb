@@ -12,9 +12,7 @@ ActiveAdmin.register Product do
       product.categories.map { |pr| pr.name }.join(", ").html_safe
     end
     actions
-
   end
-
 
   show do |product|
     attributes_table do
