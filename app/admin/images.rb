@@ -12,4 +12,6 @@ ActiveAdmin.register Image do
 #   permitted
 # end
   permit_params :image, :product_id
+
+
 end
