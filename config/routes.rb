@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'categories/show'
+
   #take the 2 gets up and put in resources
   resources :products, only: [:index, :show]
-
+  resources :categories
   root to: 'products#index'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
