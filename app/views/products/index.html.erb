@@ -1,4 +1,23 @@
-<h1>Products</h1>
-<%= render partial: 'product',
-           collection: @products,
-           locals: {show_details_link: true } %>
+<div class="well">
+  <div class="row">
+  <h1>Products</h1>
+
+    <% @products.each do |product| %>
+    <div class="col-xs-3">
+
+      <h2><%= product.product %></h2>
+      <% if product.images.present? %>
+
+
+      <%= image_tag product.images.first.image, width:200 %>
+
+      <% end %>
+
+      <br>
+      <p> <%= link_to 'View Details', product %></p>
+
+    </div>
+    <%  end %>
+
+  </div>
+</div>

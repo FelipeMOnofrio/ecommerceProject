@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get 'categories/show'
 
   #take the 2 gets up and put in resources
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show, :create]
+
   resources :categories
   resources :orders
   root to: 'products#index'

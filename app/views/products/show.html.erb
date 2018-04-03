@@ -1,10 +1,28 @@
-<%= render partial: 'product', object: @product,
-           locals: {show_details_link: false} %>
+<div class="well">
+  <div class="row">
+    <div class="col-xs-6">
+      <%= form_for @product do |f| %>
+        <% @product.stocks.each do |stock| %>
 
-<p><%= @product.description %></p>
+        <p>
+        <%= stock.size.size %> | <%= stock.colour.colour %>
+        <%= f.check_box :id, value: stock.id %>
+        </p>
+      <% end %>
 
-<p>
-  <% @product.stocks.each do |stock| %>
-    <p><%= stock.size.size %> | <%= stock.colour.colour %> <%= link_to 'Add Order', orders_path %></p>
-  <% end %>
-</p>
+
+      <h4 class="text-left">Price: <%= number_to_currency @product.price %></h4>
+      <p><%= @product.description %></p>
+
+      <%= f.submit 'Add Order' %>
+      <% end %>
+    </div>
+    <div class="col-xs-6">
+
+    <% @product.images.each do |img| %>
+    <%= image_tag img.image, width: 200 %>
+    <% end %>
+    </div>
+
+  </div>
+</div>
