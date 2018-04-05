@@ -1,14 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'orders/index'
-
-  get 'categories/show'
-
   #take the 2 gets up and put in resources
-  resources :products, only: [:index, :show, :create]
-
+  resources :products, only: [:index, :show]
+  resources :customers, only: [:show, :create]
   resources :categories
-  resources :orders
+  resources :orders, only:[:index, :create]
   root to: 'products#index'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
