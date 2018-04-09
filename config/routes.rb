@@ -2,9 +2,11 @@ Rails.application.routes.draw do
 
   #take the 2 gets up and put in resources
   resources :products, only: [:index, :show]
-  resources :customers, only: [:show, :create]
+  resources :customers, only: [:index, :show, :create]
   resources :categories
   resources :orders, only:[:index, :create]
+  resources :about, only:[:index]
+  get 'search', to: 'search#index', as: 'search'
   root to: 'products#index'
 
   devise_for :admin_users, ActiveAdmin::Devise.config

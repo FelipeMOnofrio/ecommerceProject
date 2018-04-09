@@ -7,5 +7,11 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    = render :partial => '/shared/header_menu'
-    = yield
+    .container
+      = render :partial => '/shared/header_menu'
+      .wrapper
+        = yield
+      = render :partial => '/shared/footer'
+
+javascript:
+  $(".owl-carousel").owlCarousel()

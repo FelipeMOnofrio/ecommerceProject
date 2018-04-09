@@ -39,6 +39,7 @@ gem 'bootstrap-sass'
 gem 'slim-rails'
 gem 'carrierwave'
 gem 'autoprefixer-rails'
+gem 'owlcarousel-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

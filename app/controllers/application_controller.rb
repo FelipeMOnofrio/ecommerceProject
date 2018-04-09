@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_order
   before_action :load_categories
+  before_action :load_about
   before_action :load_customer
 
   def current_order
@@ -12,10 +13,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
   private
   def load_categories
     @categories = Category.all
+  end
+
+  def load_about
+    @about = About.first
   end
 
   def load_customer
