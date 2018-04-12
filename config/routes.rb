@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'contact/index'
+
   #take the 2 gets up and put in resources
   resources :products, only: [:index, :show]
   resources :customers, only: [:index, :show, :create]
