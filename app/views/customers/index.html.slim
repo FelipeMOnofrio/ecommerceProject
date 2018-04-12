@@ -1,0 +1,36 @@
+.panel-body
+  .panel-title.row
+    h2.text-center Sign In | Log in
+  hr
+  .panel.row
+    .col-md-6
+      br
+      h3 Sign In
+      br
+      = form_tag({controller: 'customers', action: 'create'}, method: 'post') do |f|
+          .row
+            .col-md-4.form-group
+              = label_tag :name, " Full Name "
+              = text_field_tag :name
+            .col-md-4.form-group
+              = label_tag :email, " email "
+              = text_field_tag :email
+            .col-md-4.form-group
+              = label_tag :password, " Password "
+              = password_field_tag :password
+          .row
+            .col-md-6.form-group
+              =label_tag :birth_date, " Birth Date "
+              =date_field_tag :birth_date
+            .col-md-6.form-group
+              =label_tag :phone
+              =phone_field_tag :phone
+      br
+    .col-md-1
+    .col-md-5
+      br
+      h3 Log In
+
+
+
+

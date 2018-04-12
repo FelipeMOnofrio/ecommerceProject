@@ -1,0 +1,15 @@
+.panel-body
+  .panel-title.row
+    h2.text-center Products
+  hr
+  .panel.row
+    - @products.each do |product|
+        .col-md-1
+        .col-md-3
+          .products
+          h4= product.product
+          - if product.images.present?
+          = image_tag product.images.first.image, width:200
+          br/
+          p
+          = link_to 'View Details', product

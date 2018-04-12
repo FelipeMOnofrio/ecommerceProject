@@ -1,0 +1,21 @@
+.panel-body
+  .row
+    .col-md-6
+      hr
+      .magin-top-30
+        - @product.stocks.each do |stock|
+          = form_tag orders_path, method: :post do |f|
+            p
+            = stock.size.size + " "
+            = stock.colour.colour + " "
+            = hidden_field_tag :stock_id, stock.id
+            .right = submit_tag("Add")
+        h4.text-left
+          Price = number_to_currency @product.price
+        p= @product.description
+    .col-md-6
+      #owl-demo
+        .owl-carousel.owl-theme
+        - @product.images.each do |img|
+            .owl-item
+              .item = image_tag img.image

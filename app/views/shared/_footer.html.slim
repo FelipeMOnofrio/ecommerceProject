@@ -1,0 +1,9 @@
+footer#footer.white
+  .wrapper.clearfix
+    br
+    .logo-footer =image_tag 'logo.png', width: 70
+    .row
+      nav.float-left.margin-left-200
+          ul.nav.navbar-nav.col-md-12
+            li = link_to 'About', about_index_path
+            li = link_to 'Contact us', contact_index_path
