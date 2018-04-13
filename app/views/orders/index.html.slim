@@ -1,13 +1,25 @@
 .panel-body
   .panel-title.row
-    h2.text-center Orders#index
-    hr
-      .panel.row
-        .col-md-1
-        .col-md-10
-          br
-          p= session[:customer_id]
-          br
-          p= @stock
-          br
-        .col-md-1
+    h3.text-right= " Order Cart (" +  @stocks.count.to_s + ") items"
+  .panel
+    .row
+      .col-md-1
+    - @stocks.each do |stock|
+      .col-md-11.text-right
+        .row
+          .col-md-8
+          .col-md-4
+            p= link_to '[X]', remove_order_order_path(stock), remote: true, method: :post
+            p= stock.product.product
+            p= " Size: " + stock.size.size + " | Color: " + stock.colour.colour
+            p= image_tag stock.product.images.first.image, width: 100
+            p= number_to_currency stock.product.price
+            hr
+    .row
+      .col-md-1
+      .col-md-11.text-right
+        h4= "Total " + (number_to_currency @total_price)
+        br
+        h3= link_to "Proceed to Checkout"
+        h3= link_to 'Clear Order', clear_orders_orders_path, remote: true,  method: :post
+

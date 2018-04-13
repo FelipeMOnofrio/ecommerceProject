@@ -6,7 +6,15 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show]
   resources :customers, only: [:index, :show, :create]
   resources :categories
-  resources :orders, only:[:index, :create]
+  resources :orders, only:[:index, :create] do
+    collection do
+      post :clear_orders
+    end
+
+    member do
+      post :remove_order
+    end
+  end
   resources :about, only:[:index]
   get 'search', to: 'search#index', as: 'search'
   root to: 'products#index'
