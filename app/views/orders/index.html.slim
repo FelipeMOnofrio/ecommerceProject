@@ -1,7 +1,12 @@
 .panel-body
   .panel-title.row
-    h3.text-right= " Order Cart (" +  @stocks.count.to_s + ") items"
+    h3.text-right= " The Cart has " +  pluralize( @stocks.count.to_s, "item" )
   .panel
+  -if @stocks.count == 0
+    .row
+      .col-md-12.text-right
+        h4 The cart is empty!
+  -else
     .row
       .col-md-1
     - @stocks.each do |stock|

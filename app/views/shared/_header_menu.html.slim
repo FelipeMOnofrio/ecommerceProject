@@ -5,14 +5,15 @@ header#header
           i.fa.fa-reorder
         .row
         nav.navbar.navbar-static-top.white role="navigation"
-          .col-md-2
-          ul.nav.navbar-nav.col-md-7
+          .col-md-1
+          ul.nav.navbar-nav.col-md-8
             li.current
                = link_to 'HOME', root_url
             li.bg-primary = render '/categories/index'
             li = link_to 'Sign in | Log in', customers_path
-          br
+            li = link_to 'Cart', orders_path
           .col-md-3
+            br
             = form_tag(search_path, method: "get") do
               = text_field_tag(:q)
               = submit_tag "Search"

@@ -2,12 +2,16 @@
   .panel-title.row
     h2.text-center Sign In | Log in
   hr
-  .panel.row
-    .col-md-6
-      br
-      h3 Sign In
-      br
-      = form_tag({controller: 'customers', action: 'create'}, method: 'post') do |f|
+  .panel
+    .row
+      .col-md-6
+        br
+        h3 Sign In
+        hr
+        = form_tag({controller: 'customers', action: 'create'}, method: 'post') do |f|
+          .row
+            .col-md-12
+              h3 Personal
           .row
             .col-md-4.form-group
               = label_tag :name, " Full Name "
@@ -25,11 +29,20 @@
             .col-md-6.form-group
               =label_tag :phone
               =phone_field_tag :phone
-      br
-    .col-md-1
-    .col-md-5
+          br
+          .row
+            .col-md-12
+              h3 Address
+          .row
+            .col-md-4.form-group
+              =label_tag :province, " Province "
+              =text_field_tag :province
+
+      .col-md-1
+      .col-md-5
       br
       h3 Log In
+      hr
 
 
 

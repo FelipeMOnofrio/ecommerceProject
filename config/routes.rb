@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     end
 
     member do
+      post :add_order
       post :remove_order
     end
   end
