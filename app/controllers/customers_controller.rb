@@ -4,7 +4,7 @@ class CustomersController < ApplicationController
   def index
 
     if session[:login] == true
-     redirect_to edit_customer_path(@customer)
+     redirect_to edit_customer_path(session[:login_id])
     end
   end
 
@@ -35,11 +35,7 @@ class CustomersController < ApplicationController
 
   private
   def set_customer_params
-    if session[:login] == true
-      @customer = Customer.find(session[:login_id])
-    else
       @customer = Customer.find(params[:id])
-    end
   end
 
   def customer_params

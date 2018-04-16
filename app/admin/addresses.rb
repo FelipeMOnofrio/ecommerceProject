@@ -11,5 +11,5 @@ ActiveAdmin.register Address do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-  permit_params :street,:province, :city, :number, :apartment, :postal_code, :customer_id
+  permit_params :street,:province_id, :city, :number, :apartment, :postal_code, :customer_id
 end

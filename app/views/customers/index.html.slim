@@ -9,7 +9,7 @@
         =render 'form', customer: @customer
         .row
           .col-md-12
-            h3 Address
+           h3 Address
         .row
           .col-md-4.form-group
             = label_tag :province, " Province "
@@ -32,14 +32,14 @@
             = text_field_tag :apartment
         .row
           .col-md-12.form-group
-            = submit_tag "Submit"
+              = submit_tag "Submit"
       .col-md-6.padding-20
         br
           .row
             .col-md-12
               h3.text-center Log In
               hr
-          =form_tag login_login_path, method: 'post' do |form|
+        =form_tag login_login_path, method: 'post' do |form|
           .row
             .col-md-4.form-group
               = label_tag :email, " email: "
