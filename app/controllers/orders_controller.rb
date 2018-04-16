@@ -32,24 +32,6 @@ class OrdersController < ApplicationController
     redirect_to orders_path
   end
 
-  def save_order
-
-    load_order
-
-    @customer = Customer.find(params[session[:login_id]])
-
-    @stocks.each do |stock|
-
-      final_price = stock.product.price - stock.product.discount
-
-
-
-      Order.create(:final_price => final_price, :order_date => DateTime.now,
-                   :statue => 0, :stock_id => stock.id,
-                   :address_id => @customer.addresses.first.id,:custumer_id => session[:login_id])
-
-    end
-
 
   private
   def initialize_session
@@ -67,12 +49,13 @@ class OrdersController < ApplicationController
     end
     @total_price = sum
 
-  end
-
-
-
 
   end
+
+
+
+
+
 
 
 
