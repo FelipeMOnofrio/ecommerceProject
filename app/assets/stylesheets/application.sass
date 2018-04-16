@@ -1,6 +1,6 @@
 @import "bootstrap-sprockets"
 @import "bootstrap"
-@import font-awesome
+@import "font-awesome"
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -43,9 +43,9 @@ input[type=submit]
 label
   margin: 0 7px 0 0
 
-input[type=text]
+input[type=text],input[type=password], input[type=date], input[type=phone]
   .form-control
-    width: 90%
+    width: 100%
 
 footer
   position: absolute
@@ -68,6 +68,11 @@ footer
   top: 6%
   left: 5%
 
+.padding-20
+  padding: 20px
+
+.login
+  border-right: 1px solid #BBBBBB
 /*
  * 	Core Owl Carousel CSS File
  *	v1.23

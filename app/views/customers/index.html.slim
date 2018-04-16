@@ -4,46 +4,49 @@
   hr
   .panel
     .row
-      .col-md-6
+      .col-md-6.padding-20.login
         br
-        h3 Sign In
-        hr
-        = form_tag({controller: 'customers', action: 'create'}, method: 'post') do |f|
+        =render 'form', customer: @customer
+        .row
+          .col-md-12
+            h3 Address
+        .row
+          .col-md-4.form-group
+            = label_tag :province, " Province "
+            = text_field_tag :province
+          .col-md-4.form-group
+            = label_tag :city, " city "
+            = text_field_tag :city
+          .col-md-4.form-group
+            = label_tag :posta_code, " Postal Code "
+            = text_field_tag :postal_code
+        .row
+          .col-md-4.form-group
+            = label_tag :street, " Street "
+            = text_field_tag :street
+          .col-md-4.form-group
+            = label_tag :number, " Number "
+            = text_field_tag :number
+          .col-md-4.form-group
+            = label_tag :apartment, " Apartment "
+            = text_field_tag :apartment
+        .row
+          .col-md-12.form-group
+            = submit_tag "Submit"
+      .col-md-6.padding-20
+        br
           .row
             .col-md-12
-              h3 Personal
+              h3.text-center Log In
+              hr
+          =form_tag login_login_path, method: 'post' do |form|
           .row
             .col-md-4.form-group
-              = label_tag :name, " Full Name "
-              = text_field_tag :name
-            .col-md-4.form-group
-              = label_tag :email, " email "
+              = label_tag :email, " email: "
               = text_field_tag :email
             .col-md-4.form-group
-              = label_tag :password, " Password "
+              = label_tag :password, " Password: "
               = password_field_tag :password
-          .row
-            .col-md-6.form-group
-              =label_tag :birth_date, " Birth Date "
-              =date_field_tag :birth_date
-            .col-md-6.form-group
-              =label_tag :phone
-              =phone_field_tag :phone
-          br
-          .row
-            .col-md-12
-              h3 Address
-          .row
             .col-md-4.form-group
-              =label_tag :province, " Province "
-              =text_field_tag :province
-
-      .col-md-1
-      .col-md-5
-      br
-      h3 Log In
-      hr
-
-
-
-
+            br
+              = submit_tag "Log in"

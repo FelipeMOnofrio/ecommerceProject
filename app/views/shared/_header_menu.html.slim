@@ -10,8 +10,12 @@ header#header
             li.current
                = link_to 'HOME', root_url
             li.bg-primary = render '/categories/index'
-            li = link_to 'Sign in | Log in', customers_path
-            li = link_to 'Cart', orders_path
+            -if session[:login] == true
+              li = link_to 'Profile', customers_path
+              li =link_to 'logout', login_logout_path
+            -else
+              li = link_to 'Sign-in | Log-in', customers_path
+            li = link_to fa_icon("shopping-cart"), orders_path
           .col-md-3
             br
             = form_tag(search_path, method: "get") do

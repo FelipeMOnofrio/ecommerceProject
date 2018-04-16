@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
 
+  post 'login/login'
+
+  get 'login/logout'
+
   get 'contact/index'
+
 
   #take the 2 gets up and put in resources
   resources :products, only: [:index, :show]
-  resources :customers, only: [:index, :show, :create]
+  resources :customers, only: [:index, :show, :create, :edit, :update]
   resources :categories
   resources :orders, only:[:index, :create] do
     collection do
@@ -18,6 +23,8 @@ Rails.application.routes.draw do
   end
   resources :about, only:[:index]
   get 'search', to: 'search#index', as: 'search'
+
+
   root to: 'products#index'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
