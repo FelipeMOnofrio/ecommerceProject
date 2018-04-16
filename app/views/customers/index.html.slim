@@ -12,8 +12,9 @@
            h3 Address
         .row
           .col-md-4.form-group
+            br
             = label_tag :province, " Province "
-            = text_field_tag :province
+            = select_tag :province, options_from_collection_for_select(Province.all, 'id', 'abreviation')
           .col-md-4.form-group
             = label_tag :city, " city "
             = text_field_tag :city

@@ -8,12 +8,14 @@ class OrdersController < ApplicationController
   def create
     id = params[:stock_id]
 
-    if session[:stock_id].include?(id)
-      @error_alert = "This order is already in your to call list."
-    else
-      session[:stock_id] << id
-      @success_alert = "You successfully added the order to your cart."
-    end
+
+      if session[:stock_id].include?(id)
+        @error_alert = "This order is already in your to call list."
+      else
+        session[:stock_id] << id
+        @success_alert = "You successfully added the order to your cart."
+      end
+
 
     redirect_to orders_path
   end
@@ -30,6 +32,25 @@ class OrdersController < ApplicationController
     redirect_to orders_path
   end
 
+  def save_order
+
+    load_order
+
+    @customer = Customer.find(params[session[:login_id]])
+
+    @stocks.each do |stock|
+
+      final_price = stock.product.price - stock.product.discount
+
+
+
+      Order.create(:final_price => final_price, :order_date => DateTime.now,
+                   :statue => 0, :stock_id => stock.id,
+                   :address_id => @customer.addresses.first.id,:custumer_id => session[:login_id])
+
+    end
+
+
   private
   def initialize_session
     session[:stock_id] ||= []
@@ -41,11 +62,18 @@ class OrdersController < ApplicationController
 
     sum = 0
     @stocks.each do |stock|
-      sum += stock.product.price
+      total_price = stock.product.price - stock.product.discount
+      sum += total_price
     end
     @total_price = sum
 
   end
+
+
+
+
+  end
+
 
 
 end

@@ -12,6 +12,7 @@ class CustomersController < ApplicationController
   end
 
   def edit
+    @CustomerOrder = Order.where(customer_id: session[:login_id])
   end
 
   def create

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'charges/new'
+
+  get 'charges/create'
+
   post 'login/login'
 
   get 'login/logout'
@@ -22,6 +26,7 @@ Rails.application.routes.draw do
     end
   end
   resources :about, only:[:index]
+  resources :charges, only:[:create, :new]
   get 'search', to: 'search#index', as: 'search'
 
 
