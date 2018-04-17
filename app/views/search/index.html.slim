@@ -1,4 +1,28 @@
-h1 Search Results
-p Your search for
-=@search_terms
+.panel-body
+  .panel-title.row
+    h2.text-center ="Result for #{@search_terms}"
+  hr
+  -if !@products.empty?
+    .panel-body.row
+    - @products.each do |pr|
+      .col-md-1
+      .col-md-3
+        h4= pr.product
+        = image_tag pr.images.first.image, width: 200
+        br
+        p= link_to 'Select', pr
+  -if !@categorie.empty?
+    .panel-body.row
+    - @categorie.each do |cat|
+        -cat.products.each do |pr|
+          col-md-1
+            .col-md-3
+              h4= pr.product
+              = image_tag pr.images.first.image, width: 200
+              br
+              p= link_to 'Select', pr
+  -else
+    h4.text-center No result found!
+
+
 

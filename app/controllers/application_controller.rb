@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def load_customer
-    if session[:customer_id].nil?
+    if session[:login_id].nil?
       session[:customer_id] = DateTime.now
     end
   end

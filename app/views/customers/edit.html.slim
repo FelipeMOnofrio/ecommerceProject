@@ -1,0 +1,48 @@
+.panel-body
+  .panel-title.row
+    h2.text-center Profile
+  hr
+  .panel
+    .row
+      .col-md-6.padding-20.login
+        br
+          =render 'form', customer: @customer
+          .row
+            .col-md-12
+              h3 Address
+              - @customer.addresses.each do |address|
+                .row
+                  .col-md-4.form-group
+                    br
+                    = label_tag :province, " Province "
+                    = select_tag :province, options_from_collection_for_select(Province.all,'id','abreviation', address.province)
+                  .col-md-4.form-group
+                    = label_tag :city, " city "
+                    = text_field_tag :city, address.city
+                  .col-md-4.form-group
+                    = label_tag :posta_code, " Postal Code "
+                    = text_field_tag :postal_code, address.postal_code
+                .row
+                  .col-md-4.form-group
+                    = label_tag :street, " Street "
+                    = text_field_tag :street, address.street
+                  .col-md-4.form-group
+                    = label_tag :number, " Number "
+                    = text_field_tag :number, address.number
+                  .col-md-4.form-group
+                    = label_tag :apartment, " Apartment "
+                    = text_field_tag :apartment, address.apartment
+                .row
+                  .col-md-12.form-group
+                    = submit_tag "Submit"
+      .col-md-6.padding-20
+        br
+          .row
+            .col-md-12
+              h3.text-center My Orders
+              hr
+          -if !@CustomerOrder.empty?
+           -@CustomerOrder.each do |order|
+            .row
+              .col-md-4
+                =order.order_date

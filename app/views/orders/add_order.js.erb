@@ -1,0 +1,10 @@
+var alerts = document.querySelector("#alerts")
+
+<% if @success_alert %>
+alerts.innerHTML = <%= @success_alert %>
+<% end %>
+
+
+<% if @error_alert %>
+alerts.innerHTML = "<%= @error_alert %>"
+<% end %>
