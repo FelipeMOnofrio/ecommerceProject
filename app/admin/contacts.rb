@@ -12,4 +12,6 @@ ActiveAdmin.register Contact do
 #   permitted
 # end
 
+  permit_params :name, :email, :phone, :facebook
+
 end

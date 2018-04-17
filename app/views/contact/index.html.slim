@@ -5,10 +5,11 @@
   .panel.row
     .col-md-1
     .col-md-10
+    -@contacts.each do |contact|
       br
-      p =@contact.name
-      p =@contact.email
-      p =@contact.phone
-      p =@contact.facebook
+      p =contact.name
+      p =contact.email
+      p =contact.phone
+      p =contact.facebook
       br
     .col-md-1
