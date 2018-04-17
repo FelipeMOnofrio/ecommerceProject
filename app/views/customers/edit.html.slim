@@ -44,5 +44,8 @@
           -if !@CustomerOrder.empty?
            -@CustomerOrder.each do |order|
             .row
-              .col-md-4
-                =order.order_date
+              .col-md-3
+                 =order.order_date.to_date
+              .col-md-2
+                 =order.stock.inspect
+              .col-md-2
