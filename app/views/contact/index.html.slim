@@ -1,2 +1,14 @@
-h1 Contact#index
-p Find me in app/views/contact/index.html.slim
+.panel-body
+  .panel-title.row
+    h2.text-center If you have some doubt or concert contact us
+  hr
+  .panel.row
+    .col-md-1
+    .col-md-10
+      br
+      p =@contact.name
+      p =@contact.email
+      p =@contact.phone
+      p =@contact.facebook
+      br
+    .col-md-1
