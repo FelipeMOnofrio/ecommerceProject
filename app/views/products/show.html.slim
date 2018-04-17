@@ -14,9 +14,7 @@
         h4.text-left
           Price = number_to_currency @product.price
         p= @product.description
-    .col-md-6
-      #owl-demo
-        .owl-carousel.owl-theme
+    .col-md-4.text-right
         - @product.images.each do |img|
-            .owl-item
-              .item = image_tag img.image
+              p= image_tag img.image
+    .col-md-2

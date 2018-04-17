@@ -6,8 +6,8 @@ $(document).on('turbolinks:load', function() {
 
         autoPlay: 1000, //Set AutoPlay to 3 seconds
         navigation : false, // Show next and prev buttons
-        slideSpeed : 300,
-        paginationSpeed : 300,
+        slideSpeed : 1000,
+        paginationSpeed : 1000,
         singleItem:true,
         autoHeight:true
 
