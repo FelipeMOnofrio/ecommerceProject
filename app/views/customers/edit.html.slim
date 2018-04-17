@@ -47,5 +47,6 @@
               .col-md-3
                  =order.order_date.to_date
               .col-md-2
-                 =order.stock.inspect
+                 =order.stock.product.product
               .col-md-2
+                = "Final Price #{number_to_currency order.final_price}"
