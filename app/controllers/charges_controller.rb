@@ -5,7 +5,7 @@ class ChargesController < ApplicationController
 
   def create
 
-    @customerStore = Customer.find(params[session[:login_id]])
+    @customerStore = Customer.find(session[:login_id])
 
     @stocks = Stock.where(id: session[:stock_id])
 
@@ -31,7 +31,7 @@ class ChargesController < ApplicationController
 
       @order = Order.create(:final_price => total_price, :order_date => DateTime.now,
                             :statue => 0, :stock_id => stock.id,
-                            :address_id => @customerStore.addresses.first.id,:custumer_id => session[:login_id])
+                            :address_id => @customerStore.addresses.first.id,:customer_id => session[:login_id])
 
       final_price += total_price
 
@@ -48,15 +48,25 @@ class ChargesController < ApplicationController
     )
 
     @charge = Stripe::Charge.create(
-        :customer    => customer.id,
+        :customer    => @customer.id,
         :amount      => @amount,
         :description => @description,
         :currency    => 'cad'
     )
 
+
+
+
   rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to new_charge_path
+
+
+
+    session[:stock_id] = []
+    redirect_to root_path
 
   end
+
+
+
 end
